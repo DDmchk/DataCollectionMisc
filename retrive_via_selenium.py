@@ -5,15 +5,15 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.options import Options
 chrome_options = Options()
-#chrome_options.add_argument("--disable-extensions")
-#chrome_options.add_argument("--disable-gpu")
-#chrome_options.add_argument("--no-sandbox") # linux only
-chrome_options.add_argument("--headless")
-
+chrome_options.add_argument('--no-sandbox')
+chrome_options.add_argument('--window-size=1420,1080')
+chrome_options.add_argument('--headless')
+chrome_options.add_argument('--disable-gpu')
 url = 'https://www.restart-fitness.ru/raspisanie/'
 csv_file = 'visitor_counts.csv'
 
-# looping every 15 minutes
+rescan_minutes=5
+# looping every n minutes
 while True:
     # Create a new instance of the Chrome driver (you can use any other supported browser driver)
     driver = webdriver.Chrome(options=chrome_options)
@@ -51,5 +51,5 @@ while True:
     with open(csv_file, 'a') as f:
         writer = csv.writer(f)
         writer.writerow([current_time, visitor_count])
-
-    time.sleep(60*15)
+    print([current_time, visitor_count])
+    time.sleep(60*rescan_minutes)
