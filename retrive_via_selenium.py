@@ -4,6 +4,8 @@ import time
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.options import Options
+import pytz
+
 chrome_options = Options()
 chrome_options.add_argument('--no-sandbox')
 chrome_options.add_argument('--window-size=1420,1080')
@@ -45,7 +47,7 @@ while True:
     driver.quit()
 
     # Get the current date and time in the desired format
-    current_time = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+    current_time = datetime.datetime.now(tz=pytz.timezone("Europe/Moscow")).strftime('%Y-%m-%d %H:%M:%S')
 
     # Append the date, time, and visitor count to the CSV file
     with open(csv_file, 'a') as f:
