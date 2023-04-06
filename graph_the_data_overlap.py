@@ -53,9 +53,11 @@ with open('visitor_counts.csv', 'r') as file:
         beginpref = s[0]
 
     # Adjust the x-axis ticks and labels
-    plt.xticks([x * 3600 for x in range(0, 24)])
-    plt.xlabel('Time (seconds)')
+    plt.xticks([x * 3600 for x in range(0, 24)], [x for x in range(0, 24)])
+    plt.xlabel('Time (Hours)')
     plt.ylabel('Visitors')
     plt.title("RESTART's visitors vs Time Graph")
     plt.legend(loc='best')
+    plt.gca().xaxis.grid(True, color='darkgrey', linestyle='-')
+    plt.gca().yaxis.grid(True, color='darkgrey', linestyle='-')
     plt.show()
