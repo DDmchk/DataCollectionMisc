@@ -6,7 +6,7 @@ x = []
 y = []
 colors = []
 
-color_selection = ['red', 'blue', 'green', 'brown', 'gray', 'violet', 'black', 'yellow']
+color_selection = ['red', 'blue', 'green', 'brown', 'gray', 'violet', 'black']
 curcolor = 0
 sections = []
 with open('visitor_counts.csv', 'r') as file:
@@ -40,6 +40,8 @@ with open('visitor_counts.csv', 'r') as file:
                 prev_date_str = date_str
             else:
                 colors.append(color_selection[curcolor])
+            if curcolor == len(colors)-1:
+                curcolor = 0
             rowcount += 1
         except Exception as err:
             print(err)
