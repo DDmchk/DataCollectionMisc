@@ -23,6 +23,7 @@ with open('visitor_counts.csv', 'r') as file:
     rowcount = 0
     for row in reader:
         try:
+            if len(row)<2: continue  # bypass of empty rows
             date_str = row[0].split(' ')[0]
             date_time = datetime.strptime(row[0], '%Y-%m-%d %H:%M:%S')
             date_diff = date_time - ref_date  # Get difference from ref date
@@ -47,11 +48,12 @@ with open('visitor_counts.csv', 'r') as file:
             print(err)
             continue
     sections.append([rowcount-1,prev_date_str])
-    print(colors)
+    # print(colors)
     # Plot the graph with overlapping datasets
     beginpref = 0
     for s in sections:
         plt.plot(x[beginpref:s[0]], y[beginpref:s[0]], color=colors[s[0]-1], label=s[1])
+        print(f"Section: {s[1]} data entries {s[0]-beginpref}")
         beginpref = s[0]
 
     # Adjust the x-axis ticks and labels
