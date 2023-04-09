@@ -1,0 +1,12 @@
+[Unit]
+Description=Data collection service by DDS
+After=network.target
+
+[Service]
+User=root
+WorkingDirectory=/home/datacollection/DataCollectionMisc
+ExecStart=/usr/bin/python3 /home/datacollection/DataCollectionMisc/retrive_via_selenium.py
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
