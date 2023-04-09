@@ -17,7 +17,9 @@ with open('visitor_counts.csv', 'r') as file:
             print(str(err))
             continue
 plt.plot(x, y)
+plt.gca().xaxis.grid(True, color='darkgrey', linestyle='-')
+plt.gca().yaxis.grid(True, color='darkgrey', linestyle='-')
 plt.xlabel('Time')
-plt.ylabel('Data')
+plt.ylabel('Visitors')
 plt.title("Restart's visitors vs Time Graph")
 plt.show()
