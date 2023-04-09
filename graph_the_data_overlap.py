@@ -6,7 +6,7 @@ x = []
 y = []
 colors = []
 
-color_selection = ['red', 'blue', 'green', 'brown', 'gray', 'violet', 'black']
+color_selection = ['red', 'blue', 'green', 'brown', 'gray', 'violet', 'yellow']
 curcolor = 0
 sections = []
 with open('visitor_counts.csv', 'r') as file:
