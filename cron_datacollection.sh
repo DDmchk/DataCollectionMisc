@@ -1,4 +1,5 @@
 #!/bin/sh
+date
 cd /home/datacollection/DataCollectionMisc
 git pull
 git add .
