@@ -35,14 +35,15 @@ with open('visitor_counts.csv', 'r') as file:
             y.append(int(row[1]))
             # Use a different color for each day's data
             if prev_date_str != date_str:
-                curcolor += 1
+                if curcolor == len(color_selection)-1:
+                    curcolor = 0
+                else:
+                    curcolor += 1
                 colors.append(color_selection[curcolor])
                 sections.append([rowcount,prev_date_str])
                 prev_date_str = date_str
             else:
                 colors.append(color_selection[curcolor])
-            if curcolor == len(colors)-1:
-                curcolor = 0
             rowcount += 1
         except Exception as err:
             print(err)
