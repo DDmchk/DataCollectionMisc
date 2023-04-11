@@ -1,3 +1,11 @@
+"""
+graph_the_data.py
+
+make a graph on timeline of visitors in a row
+
+"""
+#TODO: overlap the week data
+
 import csv
 import matplotlib.pyplot as plt
 from datetime import datetime
